@@ -1,0 +1,3 @@
+no exercicio 2 primeiro faltava o math.h, o segundo erro é que há 2 funcoes sin, uma no sistema e outra do math.h , para especificar correr o comando gcc wall com -lm no final
+
+
