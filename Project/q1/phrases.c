@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
     char *sentence = malloc(size_sentence);
     int line_count=0;
     
+	if(in == NULL) {exit(EXIT_FAILURE);}
+	
     while (!feof(in))
     {
         
@@ -46,7 +48,7 @@ int main(int argc, char *argv[])
         {
             if(char_count >= size_sentence-1){
                 size_sentence += 256;
-                sentence = realloc(sentence, size_sentence);
+                sentence = (char*)realloc(sentence, size_sentence);
                 if(sentence == NULL){
                     fprintf(stderr, "out of memory\n");
                     return -1;
@@ -73,4 +75,7 @@ int main(int argc, char *argv[])
     }
     if(argc==2)
     {printf("%d\n",line_count);}
+	
+	free(sentence);
+	exit(EXIT_SUCCESS);
 }
